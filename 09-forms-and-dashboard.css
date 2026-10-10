@@ -1,0 +1,161 @@
+/**
+ * Jellyfin Liquid Glass / Material 3 Design System
+ * 09. Forms, Buttons, Settings & Dashboard
+ * ==========================================================================
+ * Refined form controls, buttons, paper lists, settings cards,
+ * and admin dashboard surfaces.
+ */
+
+/* --------------------------------------------------------------------------
+   Buttons (Emby & Paper Base)
+   -------------------------------------------------------------------------- */
+.raised,
+a[data-role="button"],
+.button-flat {
+    border-radius: 999px !important;
+    font-weight: 500 !important;
+    transition:
+        background-color 120ms ease,
+        box-shadow 120ms ease,
+        transform 120ms ease !important;
+}
+
+/* Submit / Primary Form Button */
+.button-submit {
+    background-color: var(--osd-accent) !important;
+    color: #0c0c0f !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 2px 10px rgba(184, 167, 255, 0.35) !important;
+    font-weight: 600 !important;
+    padding: 0.55em 1.3em !important;
+}
+
+.button-submit:hover {
+    background-color: #ccaaff !important;
+    box-shadow: 0 4px 16px rgba(184, 167, 255, 0.45) !important;
+    transform: translateY(-1px);
+}
+
+/* Destructive / Delete Button */
+.button-delete {
+    background-color: var(--jf-error) !important;
+    color: #ffffff !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.button-delete:hover {
+    filter: brightness(1.15);
+    transform: translateY(-1px);
+}
+
+/* Standard Raised / Inherit Button */
+.raised:not(.button-submit):not(.button-delete) {
+    background-color: var(--jf-surface-raised) !important;
+    color: var(--osd-text) !important;
+    border: 1px solid var(--osd-border) !important;
+}
+
+.raised:not(.button-submit):not(.button-delete):hover {
+    background-color: rgba(255, 255, 255, 0.09) !important;
+    border-color: var(--osd-border-highlight) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Inputs, Textareas & Selects
+   -------------------------------------------------------------------------- */
+.emby-input,
+.emby-textarea,
+.MuiFilledInput-root,
+.MuiOutlinedInput-root {
+    background-color: var(--jf-surface-base) !important;
+    border: 1px solid var(--osd-border) !important;
+    border-radius: 8px !important;
+    color: var(--osd-text) !important;
+    transition:
+        border-color 120ms ease,
+        box-shadow 120ms ease !important;
+}
+
+.emby-input:focus,
+.emby-textarea:focus,
+.MuiFilledInput-root.Mui-focused,
+.MuiOutlinedInput-root.Mui-focused {
+    border-color: var(--osd-accent) !important;
+    box-shadow: 0 0 0 3px rgba(184, 167, 255, 0.22) !important;
+    outline: none !important;
+}
+
+.emby-select-withcolor {
+    background-color: var(--jf-surface-base) !important;
+    border: 1px solid var(--osd-border) !important;
+    border-radius: 8px !important;
+    color: var(--osd-text) !important;
+}
+
+.emby-select-withcolor:focus {
+    border-color: var(--osd-accent) !important;
+    box-shadow: 0 0 0 3px rgba(184, 167, 255, 0.22) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Checkboxes & Radios
+   -------------------------------------------------------------------------- */
+.emby-checkbox:checked + span + .checkboxOutline {
+    border-color: var(--osd-accent) !important;
+    background-color: var(--osd-accent) !important;
+}
+
+.checkboxOutline {
+    border-radius: 4px !important;
+    border-color: var(--osd-border) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Paper Lists & Settings Panels
+   -------------------------------------------------------------------------- */
+.paperList {
+    background-color: var(--jf-surface-base) !important;
+    border: 1px solid var(--osd-border) !important;
+    border-radius: 12px !important;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.listItem {
+    transition: background-color 120ms ease;
+}
+
+.listItem:hover {
+    background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.listItem-border {
+    border-color: var(--osd-border) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Dashboard Administrative Cards & Tables
+   -------------------------------------------------------------------------- */
+.dashboardSection {
+    margin-bottom: 2rem;
+}
+
+.dashboardSection .MuiCard-root,
+.dashboardSection .MuiPaper-root {
+    background-color: var(--jf-surface-base) !important;
+    border: 1px solid var(--osd-border) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+.MuiTableCell-root {
+    border-bottom-color: var(--osd-border) !important;
+    color: var(--osd-text-secondary) !important;
+}
+
+.MuiTableCell-head {
+    font-weight: 600 !important;
+    color: var(--osd-text) !important;
+}

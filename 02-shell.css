@@ -1,0 +1,123 @@
+/**
+ * Jellyfin Liquid Glass / Material 3 Design System
+ * 02. Application Shell & Global Baseline
+ * ==========================================================================
+ * Global canvas background, backdrop softening, crisp typography,
+ * smooth custom scrollbars, keyboard focus rings, and accessibility safeguards.
+ */
+
+/* --------------------------------------------------------------------------
+   Root Canvas & Body
+   -------------------------------------------------------------------------- */
+html,
+body {
+    color: var(--jf-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Page canvas base; keep this subtle so the real backdrop image carries the artwork */
+.backgroundContainer {
+    background-color: var(--jf-surface-canvas) !important;
+    background-image:
+        radial-gradient(circle at 50% 0%, rgba(0, 164, 220, 0.05) 0%, transparent 65%),
+        var(--jf-palette-background-defaultImage, none) !important;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.backgroundContainer.withBackdrop {
+    opacity: 0.82;
+    filter: brightness(0.7) contrast(1.05) saturate(1.1);
+    transition: opacity var(--jf-transition-slow), filter var(--jf-transition-slow);
+}
+
+.backdropContainer {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    overflow: hidden;
+    background: transparent;
+}
+
+.backdropImage {
+    position: absolute;
+    inset: 0;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(18px) brightness(0.72) saturate(1.15) contrast(1.08);
+    transform: scale(1.08);
+    transform-origin: center center;
+    opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Keyboard Focus & Accessibility
+   -------------------------------------------------------------------------- */
+:focus-visible {
+    outline: 2px solid var(--jf-border-focus) !important;
+    outline-offset: 2px !important;
+}
+
+.show-focus:focus {
+    box-shadow: 0 0 0 3px var(--jf-accent-glass) !important;
+}
+
+/* Text Selection */
+::selection {
+    background-color: var(--jf-accent-glass);
+    color: var(--jf-text-primary);
+}
+
+/* --------------------------------------------------------------------------
+   Smooth Floating Scrollbars
+   -------------------------------------------------------------------------- */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: var(--jf-radius-pill);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    transition: background-color var(--jf-transition-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.35);
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+/* --------------------------------------------------------------------------
+   Reduced Motion Safeguard
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

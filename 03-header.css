@@ -1,0 +1,251 @@
+/**
+ * Jellyfin Liquid Glass / Material 3 Design System
+ * 03. Header & Primary Navigation
+ * ==========================================================================
+ * Full-width translucent glass navigation.
+ *
+ * IMPORTANT:
+ * Jellyfin owns AppBar positioning and layout geometry.
+ * This stylesheet only changes visual styling and control appearance.
+ */
+
+/* --------------------------------------------------------------------------
+   Modern Shell: Glass AppBar
+   -------------------------------------------------------------------------- */
+
+/*
+ * Hide empty AppBar and the normal shell header during video playback.
+ * The dedicated OSD header remains visible.
+ */
+.MuiAppBar-root:empty,
+.MuiAppBar-root:empty + div[aria-hidden="true"],
+body:has(#videoOsdPage) .MuiAppBar-root:not(.osdHeader),
+body:has(#videoOsdPage) .MuiAppBar-root:not(.osdHeader) + div[aria-hidden="true"],
+body:has(#videoOsdPage) .skinHeader:not(.osdHeader) {
+    display: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/*
+ * Glass visual treatment.
+ *
+ * Do NOT change:
+ * - position
+ * - top / bottom
+ * - left / right
+ * - width / height
+ * - margins
+ *
+ * Jellyfin's AppLayout / OffsetAppBar owns those properties.
+ */
+.MuiAppBar-root:not(:empty):not(.osdHeader) {
+    background-color: var(--jf-surface-glass-header) !important;
+    backdrop-filter: var(--jf-glass-backdrop) !important;
+    -webkit-backdrop-filter: var(--jf-glass-backdrop) !important;
+
+    border-bottom: 1px solid var(--jf-border-subtle) !important;
+    border-radius: 0 !important;
+
+    box-shadow:
+        var(--jf-shadow-glass) !important;
+
+    transition:
+        background-color var(--jf-transition-medium),
+        box-shadow var(--jf-transition-medium),
+        border-color var(--jf-transition-medium);
+}
+
+/* --------------------------------------------------------------------------
+   Toolbar Interior
+   -------------------------------------------------------------------------- */
+
+.MuiAppBar-root .MuiToolbar-root {
+    min-height: 48px !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    gap: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   Navigation Pills & Buttons
+   -------------------------------------------------------------------------- */
+
+.MuiAppBar-root .MuiButton-root {
+    border-radius: 10px !important;
+    text-transform: none !important;
+    font-weight: 500 !important;
+    font-size: 0.88rem !important;
+
+    padding: 0.35rem 0.85rem !important;
+
+    color: var(--jf-text-secondary) !important;
+    background-color: transparent !important;
+
+    transition:
+        color var(--jf-transition-fast),
+        background-color var(--jf-transition-fast),
+        transform var(--jf-transition-fast) !important;
+}
+
+.MuiAppBar-root .MuiButton-root:hover {
+    color: var(--jf-text-primary) !important;
+    background-color: var(--jf-surface-glass-hover) !important;
+    transform: translateY(-1px);
+}
+
+.MuiAppBar-root .MuiButton-root:active {
+    transform: translateY(0);
+    background-color: var(--jf-surface-glass-active) !important;
+}
+
+/* Active / Selected Navigation Tab */
+
+.MuiAppBar-root .MuiButton-contained,
+.MuiAppBar-root .MuiButton-root[aria-current="page"],
+.MuiAppBar-root .MuiButton-root.selected {
+    color: var(--jf-accent) !important;
+    background-color: var(--jf-surface-glass-selected) !important;
+
+    border: 1px solid rgba(184, 167, 255, 0.28) !important;
+
+    box-shadow:
+        0 0 12px rgba(184, 167, 255, 0.2) !important;
+
+    font-weight: 600 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Header Icon Actions
+   -------------------------------------------------------------------------- */
+
+.MuiAppBar-root .MuiIconButton-root {
+    color: var(--jf-text-secondary) !important;
+
+    border-radius: 10px !important;
+    padding: 7px !important;
+
+    transition:
+        color var(--jf-transition-fast),
+        background-color var(--jf-transition-fast),
+        transform var(--jf-transition-fast) !important;
+}
+
+.MuiAppBar-root .MuiIconButton-root:hover {
+    color: var(--jf-text-primary) !important;
+    background-color: var(--jf-surface-glass-hover) !important;
+    transform: scale(1.06);
+}
+
+.MuiAppBar-root .MuiIconButton-root:active {
+    transform: scale(0.94);
+    background-color: var(--jf-surface-glass-active) !important;
+}
+
+/* --------------------------------------------------------------------------
+   User Avatar
+   -------------------------------------------------------------------------- */
+
+.MuiAppBar-root .MuiAvatar-root,
+.headerUserImage {
+    border: 1.5px solid var(--jf-border-visible);
+
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.3);
+
+    transition:
+        border-color var(--jf-transition-fast),
+        box-shadow var(--jf-transition-fast);
+}
+
+.MuiAppBar-root .MuiIconButton-root:hover .MuiAvatar-root,
+.headerUserButtonRound:hover .headerUserImage {
+    border-color: var(--jf-accent);
+
+    box-shadow:
+        0 0 10px var(--jf-accent-glass);
+}
+
+/* --------------------------------------------------------------------------
+   Secondary Library Sub-Toolbar
+   -------------------------------------------------------------------------- */
+
+.libraryPage .viewSettings,
+.sectionTabs {
+    background: transparent;
+
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+}
+
+.emby-tab-button {
+    border-radius: 999px !important;
+
+    padding: 0.4em 1em !important;
+    margin: 0 0.2em !important;
+
+    font-weight: 500 !important;
+    font-size: 0.88rem !important;
+
+    color: var(--jf-text-secondary) !important;
+
+    transition:
+        background-color var(--jf-transition-fast),
+        color var(--jf-transition-fast) !important;
+}
+
+.emby-tab-button:hover {
+    background-color: var(--jf-surface-glass-hover) !important;
+    color: var(--jf-text-primary) !important;
+}
+
+.emby-tab-button-active {
+    background-color: var(--jf-surface-glass-selected) !important;
+    color: var(--jf-accent) !important;
+
+    font-weight: 600 !important;
+
+    border: 1px solid rgba(184, 167, 255, 0.22);
+}
+
+/* --------------------------------------------------------------------------
+   Legacy Shell Header
+   -------------------------------------------------------------------------- */
+
+/*
+ * Preserve the legacy header's original layout geometry.
+ * Only apply the visual glass treatment.
+ */
+.skinHeader-withBackground:not(.osdHeader) {
+    background-color: var(--jf-surface-glass-header) !important;
+    backdrop-filter: var(--jf-glass-backdrop) !important;
+    -webkit-backdrop-filter: var(--jf-glass-backdrop) !important;
+
+    border-bottom: 1px solid var(--jf-border-subtle) !important;
+    border-radius: 0 !important;
+
+    box-shadow:
+        var(--jf-shadow-glass) !important;
+}
+
+/* --------------------------------------------------------------------------
+   TV Mode Safeguards
+   -------------------------------------------------------------------------- */
+
+.layout-tv .MuiAppBar-root,
+.layout-tv .skinHeader,
+.layout-tv .skinHeader-withBackground {
+    margin: 0 !important;
+    border-radius: 0 !important;
+
+    border: none !important;
+    box-shadow: none !important;
+
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+
+    background-color: var(--jf-surface-raised) !important;
+}

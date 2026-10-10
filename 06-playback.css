@@ -1,0 +1,426 @@
+/**
+ * Jellyfin Liquid Glass / Material 3 Design System
+ * 06. Playback OSD & Video Controls
+ * ==========================================================================
+ * Compact translucent / glass-style controls
+ * Designed for:
+ * - ASS subtitles rendered inside the video
+ * - Anime / subtitle-heavy content
+ * - Desktop use
+ * - Dark translucent controls
+ */
+
+/* =========================================================
+   Top video app bar
+   ========================================================= */
+
+.skinHeader-withBackground.osdHeader {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: auto !important;
+}
+
+.videoOsd-appBar {
+    padding-left: 10px;
+    padding-right: 10px;
+
+    background: rgba(12, 12, 15, 0.40) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+
+    backdrop-filter: blur(8px) saturate(120%) !important;
+    -webkit-backdrop-filter: blur(8px) saturate(120%) !important;
+}
+
+/* Title in top bar */
+.videoOsd-appBar .MuiTypography-root {
+    color: var(--osd-text) !important;
+
+    font-size: 0.88rem !important;
+    font-weight: 500 !important;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Top buttons */
+.videoOsd-appBar button {
+    border-radius: 10px !important;
+}
+
+.videoOsd-appBar button:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* =========================================================
+   Main OSD panel
+   ========================================================= */
+
+.videoOsdBottom-maincontrols {
+    left: 20px !important;
+    right: 20px !important;
+    bottom: 12px !important;
+
+    width: auto !important;
+    max-width: 1500px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 9px 14px 8px !important;
+
+    background: var(--osd-bg) !important;
+
+    border: 1px solid var(--osd-border) !important;
+    border-radius: var(--osd-radius) !important;
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035) !important;
+
+    /*
+     * Keep this subtle.
+     * ASS subtitles are rendered into the video itself, so the
+     * panel must remain sufficiently transparent for them to
+     * remain visible.
+     */
+    backdrop-filter: blur(2px) saturate(115%) !important;
+    -webkit-backdrop-filter: blur(2px) saturate(115%) !important;
+}
+
+/* =========================================================
+   OSD layout
+   ========================================================= */
+
+.videoOsdBottom-maincontrols .osdControls {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 0 !important;
+    max-width: 100% !important;
+}
+
+/* =========================================================
+   Title
+   ========================================================= */
+
+.videoOsdBottom-maincontrols .osdMainTextContainer {
+    margin: 0 2px 1px;
+}
+
+.videoOsdBottom-maincontrols .osdTitle {
+    margin: 0;
+
+    color: var(--osd-text);
+
+    font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 1.3;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+}
+
+/* Secondary media information */
+.videoOsdBottom-maincontrols .osdSecondaryMediaInfo {
+    color: var(--osd-text-secondary);
+
+    font-size: 0.75rem;
+
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+}
+
+/* =========================================================
+   Progress / seek row
+   ========================================================= */
+
+.videoOsdBottom-maincontrols
+.flex.flex-direction-row.align-items-center {
+    min-height: 20px;
+}
+
+/* Time labels */
+.videoOsdBottom-maincontrols .osdPositionText,
+.videoOsdBottom-maincontrols .osdDurationText {
+    color: var(--osd-text-secondary);
+
+    font-size: 0.72rem;
+    font-variant-numeric: tabular-nums;
+
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* Slider container */
+.videoOsdBottom-maincontrols .sliderContainer {
+    height: 18px;
+}
+
+/* Actual position slider */
+.videoOsdBottom-maincontrols .osdPositionSlider {
+    height: 4px;
+    cursor: pointer;
+}
+
+/* Slider track (Emby WebComponent structure) */
+.videoOsdBottom-maincontrols
+.mdl-slider-background-flex-inner {
+    height: 4px;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+/* Unplayed */
+.videoOsdBottom-maincontrols
+.mdl-slider-background-upper {
+    background: rgba(255, 255, 255, 0.20) !important;
+}
+
+/* Played */
+.videoOsdBottom-maincontrols
+.mdl-slider-background-lower {
+    background: var(--osd-accent) !important;
+}
+
+/* Standard HTML5 range fallbacks */
+.videoOsdBottom-maincontrols input[type="range"]::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.20);
+}
+
+.videoOsdBottom-maincontrols input[type="range"]::-webkit-slider-thumb {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: var(--osd-accent);
+    margin-top: -4px;
+    box-shadow: 0 0 8px var(--osd-accent);
+}
+
+/* Chapter markers */
+.videoOsdBottom-maincontrols .sliderMarker {
+    width: 3px;
+    height: 6px;
+    margin-top: -1px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* =========================================================
+   Playback controls
+   ========================================================= */
+
+.videoOsdBottom-maincontrols .buttons {
+    display: flex;
+    align-items: center;
+    gap: 1px;
+    min-height: 38px;
+    padding: 0 !important;
+}
+
+/* First playback button group */
+.videoOsdBottom-maincontrols .buttons > div:first-child {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+}
+
+/* Generic buttons */
+.videoOsdBottom-maincontrols
+button[is="paper-icon-button-light"] {
+    width: 36px;
+    height: 36px;
+    margin: 0 1px;
+    padding: 0;
+    border-radius: 10px;
+
+    color: var(--osd-text);
+    background: transparent;
+
+    transition:
+        background 120ms ease,
+        transform 120ms ease;
+}
+
+/* Hover */
+.videoOsdBottom-maincontrols
+button[is="paper-icon-button-light"]:hover {
+    background: rgba(255, 255, 255, 0.09) !important;
+    color: #ffffff !important;
+}
+
+/* Press */
+.videoOsdBottom-maincontrols
+button[is="paper-icon-button-light"]:active {
+    transform: scale(0.92);
+}
+
+/* =========================================================
+   Play / pause
+   ========================================================= */
+
+.videoOsdBottom-maincontrols .btnPause {
+    width: 42px !important;
+    height: 42px !important;
+    margin: 0 4px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.10) !important;
+}
+
+.videoOsdBottom-maincontrols .btnPause:hover {
+    background: rgba(255, 255, 255, 0.16) !important;
+}
+
+/* =========================================================
+   Icons
+   ========================================================= */
+
+.videoOsdBottom-maincontrols
+.xlargePaperIconButton,
+.videoOsdBottom-maincontrols
+.largePaperIconButton {
+    color: inherit;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* =========================================================
+   Rating
+   ========================================================= */
+
+.videoOsdBottom-maincontrols #je-osd-rating-container {
+    margin: 0 5px;
+}
+
+.videoOsdBottom-maincontrols .je-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    color: var(--osd-text);
+    font-size: 0.72rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* =========================================================
+   Ends-at text
+   ========================================================= */
+
+.videoOsdBottom-maincontrols .osdTimeText {
+    margin-left: auto;
+    margin-right: 4px;
+    color: var(--osd-text-secondary);
+    font-size: 0.72rem;
+    white-space: nowrap;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* =========================================================
+   Volume
+   ========================================================= */
+
+.videoOsdBottom-maincontrols .volumeButtons {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+/* Volume slider */
+.videoOsdBottom-maincontrols
+.osdVolumeSliderContainer {
+    width: 80px;
+    margin-left: 2px;
+}
+
+/* Volume track */
+.videoOsdBottom-maincontrols
+.osdVolumeSlider {
+    height: 4px;
+}
+
+/* =========================================================
+   Right-side controls
+   ========================================================= */
+
+.videoOsdBottom-maincontrols
+#enhancedSettingsBtn,
+.videoOsdBottom-maincontrols
+#jeBookmarkBtn,
+.videoOsdBottom-maincontrols
+.btnVideoOsdSettings {
+    margin-left: 1px;
+}
+
+/* =========================================================
+   Hidden / idle state
+   ========================================================= */
+
+.videoOsdBottom-maincontrols.videoOsdBottom-hidden {
+    opacity: 0 !important;
+    transform: translateY(8px) !important;
+    pointer-events: none !important;
+    transition:
+        opacity 180ms ease,
+        transform 180ms ease !important;
+}
+
+/* =========================================================
+   Better readability over bright video
+   ========================================================= */
+
+.videoOsdBottom-maincontrols button,
+.videoOsdBottom-maincontrols .osdTitle,
+.videoOsdBottom-maincontrols .osdTextContainer,
+.videoOsdBottom-maincontrols .osdTimeText {
+    text-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.85),
+        0 0 8px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================================
+   Small screens / Responsive
+   ========================================================= */
+
+@media (max-width: 800px) {
+    .videoOsdBottom-maincontrols {
+        left: 10px !important;
+        right: 10px !important;
+        bottom: 8px !important;
+        padding: 7px 9px 6px !important;
+        border-radius: 12px !important;
+    }
+
+    .videoOsdBottom-maincontrols
+    button[is="paper-icon-button-light"] {
+        width: 34px;
+        height: 34px;
+    }
+
+    .videoOsdBottom-maincontrols .btnPause {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .videoOsdBottom-maincontrols
+    .osdVolumeSliderContainer {
+        width: 60px;
+    }
+}
+
+/* TV Mode Safeguards */
+.layout-tv .videoOsdBottom-maincontrols {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: #141418 !important;
+    box-shadow: none !important;
+}

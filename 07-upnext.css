@@ -1,0 +1,160 @@
+/**
+ * Jellyfin Liquid Glass / Material 3 Design System
+ * 07. Up Next Dialog
+ * ==========================================================================
+ * Redesigned as an elevated translucent glass card matching the compact OSD.
+ * Clear information hierarchy, lavender accent countdown, and glass action buttons.
+ */
+
+/* --------------------------------------------------------------------------
+   Up Next Glass Card Container
+   -------------------------------------------------------------------------- */
+.upNextContainer {
+    background: var(--osd-bg) !important;
+    backdrop-filter: blur(5px) saturate(115%) !important;
+    -webkit-backdrop-filter: blur(5px) saturate(115%) !important;
+
+    border: 1px solid var(--osd-border) !important;
+    border-radius: var(--osd-radius) !important;
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035) !important;
+
+    padding: 14px 18px 14px !important;
+    width: 26rem !important;
+    max-width: calc(100vw - 2rem) !important;
+
+    transition:
+        opacity 180ms ease,
+        transform 180ms ease !important;
+}
+
+[dir="ltr"] .upNextContainer {
+    margin: 0 20px 20px 0 !important;
+}
+
+[dir="rtl"] .upNextContainer {
+    margin: 0 0 20px 20px !important;
+}
+
+.upNextDialog-hidden {
+    opacity: 0 !important;
+    transform: translateY(10px) scale(0.97) !important;
+    pointer-events: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   Typography & Hierarchy
+   -------------------------------------------------------------------------- */
+.upNextDialog-nextVideoText {
+    text-transform: uppercase;
+    font-size: 0.72rem !important;
+    letter-spacing: 0.06em !important;
+    font-weight: 600 !important;
+    color: var(--osd-text-secondary) !important;
+    margin: 0 0 2px !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+}
+
+.upNextDialog-countdownText {
+    color: var(--osd-accent) !important;
+    font-weight: 700 !important;
+    text-shadow: 0 0 10px rgba(184, 167, 255, 0.45);
+}
+
+.upNextDialog-title {
+    font-size: 0.98rem !important;
+    font-weight: 600 !important;
+    color: var(--osd-text) !important;
+    line-height: 1.35 !important;
+    margin: 2px 0 8px !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+}
+
+/* Metadata chips in Up Next */
+.upNextDialog-mediainfo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.74rem;
+    color: var(--osd-text-secondary);
+}
+
+.upNextDialog-mediainfo .mediaInfoText {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    border-radius: 999px !important;
+    padding: 3px 8px !important;
+    color: var(--osd-text) !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* --------------------------------------------------------------------------
+   Action Buttons (Start Now / Hide)
+   -------------------------------------------------------------------------- */
+.upNextDialog-buttons {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px !important;
+    width: auto !important;
+}
+
+/* Start Now (Primary CTA) */
+.upNextDialog-button.btnStartNow {
+    background: var(--osd-accent) !important;
+    color: #0c0c0f !important;
+    border-radius: 999px !important;
+    padding: 6px 14px !important;
+    font-weight: 600 !important;
+    font-size: 0.82rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    box-shadow: 0 2px 10px rgba(184, 167, 255, 0.35) !important;
+    transition:
+        transform 120ms ease,
+        background 120ms ease !important;
+}
+
+.upNextDialog-button.btnStartNow:hover {
+    background: #ccaaff !important;
+    transform: translateY(-1px);
+}
+
+.upNextDialog-button.btnStartNow:active {
+    transform: scale(0.96);
+}
+
+/* Hide (Secondary Action) */
+.upNextDialog-button.btnHide {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.09) !important;
+    color: var(--osd-text) !important;
+    border-radius: 999px !important;
+    padding: 6px 12px !important;
+    font-weight: 500 !important;
+    font-size: 0.82rem !important;
+    transition:
+        transform 120ms ease,
+        background 120ms ease !important;
+}
+
+.upNextDialog-button.btnHide:hover {
+    background: rgba(255, 255, 255, 0.14) !important;
+    transform: translateY(-1px);
+}
+
+.upNextDialog-button.btnHide:active {
+    transform: scale(0.96);
+}
+
+/* --------------------------------------------------------------------------
+   TV Mode Safeguards
+   -------------------------------------------------------------------------- */
+.layout-tv .upNextContainer {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: #141418 !important;
+}

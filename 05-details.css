@@ -1,0 +1,211 @@
+/**
+ * Jellyfin Liquid Glass / Material 3 Design System
+ * 05. Media Detail Pages
+ * ==========================================================================
+ * Hierarchical media presentation: soft-blended backdrop, elevated poster,
+ * translucent obsidian action ribbon, crisp typography, and chip metadata tags.
+ */
+
+/* --------------------------------------------------------------------------
+   Backdrop Treatment & Ambient Softening
+   -------------------------------------------------------------------------- */
+.itemBackdrop {
+    filter: brightness(0.6) saturate(1.15) contrast(1.05);
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.4) 65%, transparent 100%);
+    -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.4) 65%, transparent 100%);
+    transition: opacity var(--jf-transition-slow);
+}
+
+.detailLogo {
+    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.7));
+}
+
+/* --------------------------------------------------------------------------
+   Detail Poster
+   -------------------------------------------------------------------------- */
+.detailImageContainer .cardScalable,
+.detailImageContainer .cardImageContainer,
+.itemDetailImage {
+    border-radius: var(--osd-radius) !important;
+    border: 1px solid var(--osd-border);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Detail Ribbon (Floating Action & Title Surface)
+   -------------------------------------------------------------------------- */
+@media all and (min-width: 900px) {
+    .detailRibbon {
+        background: var(--osd-bg) !important;
+        backdrop-filter: blur(5px) saturate(115%) !important;
+        -webkit-backdrop-filter: blur(5px) saturate(115%) !important;
+        border: 1px solid var(--osd-border) !important;
+        border-radius: var(--osd-radius) !important;
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.28),
+            inset 0 1px 0 rgba(255, 255, 255, 0.035) !important;
+
+        margin-left: 20px !important;
+        margin-right: 20px !important;
+        padding-top: 14px !important;
+        padding-bottom: 14px !important;
+        padding-right: 20px !important;
+    }
+}
+
+/* Mobile Detail Ribbon adjustment */
+@media all and (max-width: 899px) {
+    .detailRibbon {
+        background: transparent !important;
+        box-shadow: none !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Detail Action Buttons
+   -------------------------------------------------------------------------- */
+.mainDetailButtons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Play / Resume primary CTA button */
+.detailButton.btnPlay,
+.detailButton.btnReplay {
+    background: var(--osd-accent) !important;
+    color: #0c0c0f !important;
+    border-radius: 999px !important;
+    padding: 0.6em 1.4em !important;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 12px rgba(184, 167, 255, 0.35) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    transition:
+        transform 120ms ease,
+        background 120ms ease !important;
+}
+
+.detailButton.btnPlay:hover,
+.detailButton.btnReplay:hover {
+    background: #ccaaff !important;
+    transform: translateY(-1px) scale(1.02);
+}
+
+.detailButton.btnPlay:active,
+.detailButton.btnReplay:active {
+    transform: scale(0.96);
+}
+
+/* Secondary glass circular icon buttons (Trailer, Fav, Watched, Download) */
+.detailButton:not(.btnPlay):not(.btnReplay) {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid var(--osd-border) !important;
+    color: var(--osd-text) !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+    width: 38px !important;
+    height: 38px !important;
+    padding: 0 !important;
+    transition:
+        transform 120ms ease,
+        background 120ms ease,
+        color 120ms ease !important;
+}
+
+.detailButton:not(.btnPlay):not(.btnReplay):hover {
+    background: rgba(255, 255, 255, 0.14) !important;
+    color: #ffffff !important;
+    transform: scale(1.06);
+}
+
+.detailButton:not(.btnPlay):not(.btnReplay):active {
+    transform: scale(0.94);
+}
+
+/* Active rating and watched state */
+.btnUserRating.ratingbutton-icon-withrating,
+.btnPlaystate.playstatebutton-icon-played {
+    color: var(--osd-accent) !important;
+    border-color: var(--osd-accent) !important;
+    box-shadow: 0 0 10px rgba(184, 167, 255, 0.3) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Metadata Chips (Matching .je-chip specification)
+   -------------------------------------------------------------------------- */
+.itemMiscInfo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+.mediaInfoText {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px !important;
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    color: var(--osd-text) !important;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.starIcon {
+    color: var(--jf-star) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Overview & Content Typography
+   -------------------------------------------------------------------------- */
+.tagline {
+    font-style: italic;
+    color: var(--osd-text-secondary);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+}
+
+.overview {
+    line-height: 1.6 !important;
+    color: var(--osd-text-secondary) !important;
+    font-size: 0.92rem !important;
+    max-width: 72ch;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+}
+
+/* Track selector dropdowns (Audio, Subtitles, Quality) */
+.trackSelections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 1rem 0;
+}
+
+.selectContainer select {
+    background-color: var(--jf-surface-base) !important;
+    border: 1px solid var(--osd-border) !important;
+    border-radius: 8px !important;
+    color: var(--osd-text) !important;
+    padding: 0.45em 1.8em 0.45em 0.7em !important;
+    font-size: 0.85rem !important;
+}
+
+/* --------------------------------------------------------------------------
+   TV Mode Safeguards
+   -------------------------------------------------------------------------- */
+.layout-tv .detailRibbon {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}

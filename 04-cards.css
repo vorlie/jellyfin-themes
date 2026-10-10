@@ -1,0 +1,314 @@
+/**
+ * Jellyfin Liquid Glass / Material 3 Design System
+ * 04. Media Cards & Grid Items
+ * ==========================================================================
+ * Coherent card language with subtle borders, restrained hover lift,
+ * consistent radii, and clean typography hierarchy matching the dark aesthetic.
+ */
+
+/* --------------------------------------------------------------------------
+   Card Geometry & Structure
+   -------------------------------------------------------------------------- */
+
+.card {
+    transition:
+        transform 120ms ease,
+        box-shadow 120ms ease;
+}
+
+.cardBox {
+    margin: 0.45em !important;
+}
+
+/* Scalable card wrapper holding image */
+.cardScalable {
+    border-radius: var(--osd-radius) !important;
+    overflow: hidden;
+    background-color: var(--jf-surface-base);
+    border: 1px solid var(--osd-border);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    transition:
+        transform 120ms ease,
+        box-shadow 120ms ease,
+        border-color 120ms ease;
+}
+
+/* Visual Card Box */
+.visualCardBox {
+    background-color: var(--jf-surface-base) !important;
+    border-radius: var(--osd-radius) !important;
+    border: 1px solid var(--osd-border) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
+    transition:
+        transform 120ms ease,
+        box-shadow 120ms ease,
+        border-color 120ms ease !important;
+}
+
+/* --------------------------------------------------------------------------
+   Card Hover Elevation & Restrained Lift
+   -------------------------------------------------------------------------- */
+
+@media (hover: hover) and (pointer: fine) {
+    .card:hover .cardScalable,
+    .card:hover .visualCardBox {
+        border-color: var(--osd-border-highlight);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        transform: translateY(-3px);
+    }
+
+    .card:hover .cardImageContainer .cardImage,
+    .card:hover .coveredImage {
+        transform: scale(1.03);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Card Images
+   -------------------------------------------------------------------------- */
+
+.cardImageContainer {
+    border-radius: var(--osd-radius) !important;
+    overflow: hidden;
+}
+
+.cardImageContainer .cardImage,
+.coveredImage {
+    transition: transform 180ms ease;
+    will-change: transform;
+}
+
+.cardPadder {
+    background-color: var(--jf-surface-base) !important;
+}
+
+/* --------------------------------------------------------------------------
+   Card Overlay Buttons
+   --------------------------------------------------------------------------
+   Jellyfin uses a MUI ButtonGroup here. MUI's grouped-button rules conflict
+   with circular action buttons, so explicitly turn the group into a small
+   collection of independent discs.
+   -------------------------------------------------------------------------- */
+
+/* The ButtonGroup itself */
+.cardOverlayButton-br {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+
+    /* Undo MUI ButtonGroup geometry */
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+}
+
+/* Every action becomes an actual square */
+.cardOverlayButton-br > .cardOverlayButton {
+    flex: 0 0 auto !important;
+
+    width: 36px !important;
+    min-width: 36px !important;
+    max-width: 36px !important;
+
+    height: 36px !important;
+    min-height: 36px !important;
+    max-height: 36px !important;
+
+    aspect-ratio: 1 / 1 !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    box-sizing: border-box !important;
+
+    /* Kill ButtonGroup's connected-button geometry */
+    border: 1px solid var(--osd-border) !important;
+    border-radius: 50% !important;
+
+    background-color: rgba(12, 12, 15, 0.65) !important;
+    color: var(--osd-text) !important;
+
+    backdrop-filter: blur(5px) saturate(115%);
+    -webkit-backdrop-filter: blur(5px) saturate(115%);
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045) !important;
+
+    overflow: hidden !important;
+
+    transition:
+        background-color 120ms ease,
+        border-color 120ms ease,
+        transform 120ms ease,
+        color 120ms ease,
+        box-shadow 120ms ease !important;
+}
+
+/*
+ * MUI ButtonGroup applies special border-radius and border rules to
+ * .MuiButtonGroup-grouped children. Override all of them explicitly.
+ */
+.cardOverlayButton-br
+    > .MuiButtonGroup-grouped.cardOverlayButton {
+    border-radius: 50% !important;
+    border-left: 1px solid var(--osd-border) !important;
+    border-right: 1px solid var(--osd-border) !important;
+    border-top: 1px solid var(--osd-border) !important;
+    border-bottom: 1px solid var(--osd-border) !important;
+}
+
+/* Icons stay geometrically centered */
+.cardOverlayButton-br
+    > .cardOverlayButton
+    > .MuiSvgIcon-root {
+    width: 20px !important;
+    height: 20px !important;
+    flex: 0 0 auto !important;
+}
+
+/* Medium "More" button gets a slightly larger disc */
+.cardOverlayButton-br
+    > .cardOverlayButton.MuiIconButton-sizeMedium {
+    width: 40px !important;
+    min-width: 40px !important;
+    max-width: 40px !important;
+
+    height: 40px !important;
+    min-height: 40px !important;
+    max-height: 40px !important;
+}
+
+/* Keep the larger icon visually proportional */
+.cardOverlayButton-br
+    > .cardOverlayButton.MuiIconButton-sizeMedium
+    > .MuiSvgIcon-root {
+    width: 22px !important;
+    height: 22px !important;
+}
+
+/* Hover */
+@media (hover: hover) and (pointer: fine) {
+    .cardOverlayButton-br
+        > .cardOverlayButton:hover {
+        background-color: var(--osd-accent) !important;
+        border-color: var(--osd-accent) !important;
+        color: #0c0c0f !important;
+
+        transform: scale(1.08);
+
+        box-shadow:
+            0 6px 18px rgba(0, 0, 0, 0.35),
+            0 0 16px rgba(184, 167, 255, 0.4) !important;
+    }
+}
+
+/* Keyboard focus */
+.cardOverlayButton-br
+    > .cardOverlayButton:focus-visible {
+    outline: 2px solid var(--osd-accent) !important;
+    outline-offset: 2px !important;
+}
+
+/* Touch ripple should respect the circular geometry */
+.cardOverlayButton-br
+    > .cardOverlayButton
+    > .MuiTouchRipple-root {
+    border-radius: 50% !important;
+}
+
+/* --------------------------------------------------------------------------
+   Card Hover Menu
+   -------------------------------------------------------------------------- */
+
+.cardHoverMenu {
+    background-color: rgba(12, 12, 15, 0.65) !important;
+    backdrop-filter: blur(5px) saturate(115%);
+    -webkit-backdrop-filter: blur(5px) saturate(115%);
+    border-radius: 999px !important;
+}
+
+/* --------------------------------------------------------------------------
+   Progress Bar on Media Cards
+   -------------------------------------------------------------------------- */
+
+.itemProgressBar {
+    background: rgba(0, 0, 0, 0.65) !important;
+    height: 4px !important;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.itemProgressBarForeground {
+    background: var(--osd-accent) !important;
+    border-radius: 999px;
+    box-shadow: 0 0 6px var(--osd-accent);
+}
+
+/* --------------------------------------------------------------------------
+   Badges & Indicators
+   -------------------------------------------------------------------------- */
+
+.countIndicator,
+.playedIndicator,
+.mediaSourceIndicator {
+    background-color: var(--osd-accent) !important;
+    color: #0c0c0f !important;
+    border-radius: 999px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    font-weight: 600 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Card Metadata & Typography
+   -------------------------------------------------------------------------- */
+
+.cardFooter {
+    padding: 0.5em 0.2em 0.3em 0.2em !important;
+}
+
+.cardText-first {
+    font-weight: 500 !important;
+    color: var(--osd-text) !important;
+    font-size: 0.9rem !important;
+    line-height: 1.3 !important;
+}
+
+.cardText-secondary {
+    color: var(--osd-text-secondary) !important;
+    font-size: 0.8rem !important;
+    line-height: 1.35 !important;
+}
+
+/* Section titles preceding card grids */
+.sectionTitle,
+.sectionTitle-cards {
+    font-weight: 600 !important;
+    letter-spacing: -0.01em;
+    color: var(--osd-text) !important;
+    font-size: 1.15rem !important;
+    margin-bottom: 0.5em !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+}
+
+/* --------------------------------------------------------------------------
+   TV Mode Safeguards
+   -------------------------------------------------------------------------- */
+
+.layout-tv .cardScalable,
+.layout-tv .visualCardBox {
+    transform: none !important;
+}
+
+.layout-tv .card:focus .cardScalable,
+.layout-tv .card:focus .visualCardBox {
+    border: 3px solid var(--osd-accent) !important;
+    box-shadow: 0 0 20px var(--osd-accent) !important;
+}

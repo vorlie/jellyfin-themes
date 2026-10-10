@@ -1,0 +1,115 @@
+/**
+ * Jellyfin Liquid Glass / Material 3 Design System
+ * 01. Design Tokens
+ * ==========================================================================
+ * Dark-first translucent obsidian palette with refined lavender accent,
+ * restrained optical blurs, subtle borders, and subtitle-safe contrast.
+ */
+:root {
+    /* ----------------------------------------------------------------------
+       Surfaces & Canvas (Dark Obsidian & Glass)
+       ---------------------------------------------------------------------- */
+    --jf-surface-canvas: rgba(12, 12, 15, 0.767);
+    --jf-surface-canvas-subtle: #101014;
+    --jf-surface-base: #141418;
+    --jf-surface-raised: var(--jf-palette-background-paper, #19191e);
+    --jf-surface-overlay: rgba(12, 12, 15, 0.72);
+    /* Translucent Liquid Glass Surfaces */
+    --jf-surface-glass: rgba(12, 12, 15, 0.48);
+    --jf-surface-glass-header: rgba(12, 12, 15, 0.52);
+    --jf-surface-glass-osd: rgba(12, 12, 15, 0.48);
+    --jf-surface-glass-dialog: rgba(15, 15, 18, 0.75);
+    --jf-surface-glass-subtle: rgba(255, 255, 255, 0.04);
+    --jf-surface-glass-hover: rgba(255, 255, 255, 0.09);
+    --jf-surface-glass-active: rgba(255, 255, 255, 0.16);
+    --jf-surface-glass-selected: rgba(184, 167, 255, 0.18);
+    /* ----------------------------------------------------------------------
+        Borders & Outlines
+        ---------------------------------------------------------------------- */
+    --jf-border-subtle: rgba(255, 255, 255, 0.09);
+    --jf-border-visible: rgba(255, 255, 255, 0.14);
+    --jf-border-highlight: rgba(255, 255, 255, 0.22);
+    --jf-border-glass-specular: inset 0 1px 0 0 rgba(255, 255, 255, 0.035);
+    --jf-border-focus: var(--jf-accent);
+
+    /* ----------------------------------------------------------------------
+       Typography & Content Colors
+       ---------------------------------------------------------------------- */
+    --jf-text-primary: rgba(255, 255, 255, 0.95);
+    --jf-text-secondary: rgba(255, 255, 255, 0.62);
+    --jf-text-muted: rgba(255, 255, 255, 0.45);
+    --jf-text-on-accent: #0c0c0f;
+    /* ----------------------------------------------------------------------
+       Brand & Accent (Refined Lavender / Violet)
+       ---------------------------------------------------------------------- */
+    --jf-accent: #b8a7ff;
+    --jf-accent-hover: #ccaaff;
+    --jf-accent-dark: #8e7ec8;
+    --jf-accent-glass: rgba(184, 167, 255, 0.24);
+    --jf-accent-contrast: #0c0c0f;
+    --jf-star: #f5b027;
+    --jf-error: #e55353;
+    /* ----------------------------------------------------------------------
+       Geometry & Border Radii
+       ---------------------------------------------------------------------- */
+    --jf-radius-xs: 4px;
+    --jf-radius-sm: 8px;
+    --jf-radius-md: 10px;
+    --jf-radius-lg: 14px;
+    --jf-radius-xl: 16px;
+    --jf-radius-2xl: 20px;
+    --jf-radius-pill: 999px;
+    /* ----------------------------------------------------------------------
+       Elevations & Shadows
+       ---------------------------------------------------------------------- */
+    --jf-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.22);
+    --jf-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.30);
+    --jf-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.35);
+    --jf-shadow-glass:
+        0 8px 32px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+    --jf-shadow-glow-accent: 0 0 16px rgba(184, 167, 255, 0.32);
+
+    /* Text shadows for readability over bright video/artwork */
+    --jf-text-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.85),
+        0 0 8px rgba(0, 0, 0, 0.35);
+    /* ----------------------------------------------------------------------
+       Glass Optics (Restrained, Subtitle-Safe)
+       ---------------------------------------------------------------------- */
+    --jf-glass-blur: 8px;
+    --jf-glass-blur-sm: 5px;
+    --jf-glass-saturation: 115%;
+    --jf-glass-backdrop: blur(var(--jf-glass-blur)) saturate(var(--jf-glass-saturation));
+    --jf-glass-backdrop-subtle: blur(var(--jf-glass-blur-sm)) saturate(var(--jf-glass-saturation));
+    /* ----------------------------------------------------------------------
+       Transitions & Timing
+       ---------------------------------------------------------------------- */
+    --jf-transition-fast: 120ms ease;
+    --jf-transition-medium: 180ms ease;
+    --jf-transition-slow: 280ms ease;
+    /* ----------------------------------------------------------------------
+       OSD Compatibility Tokens (Direct mapping from snippet)
+       ---------------------------------------------------------------------- */
+    --osd-bg: var(--jf-surface-glass-osd);
+    --osd-bg-hover: rgba(25, 25, 30, 0.62);
+    --osd-border: var(--jf-border-subtle);
+    --osd-border-highlight: var(--jf-border-visible);
+    --osd-text: var(--jf-text-primary);
+    --osd-text-secondary: var(--jf-text-secondary);
+    --osd-accent: var(--jf-accent);
+    --osd-radius: var(--jf-radius-xl);
+}
+
+/* TV Layout Disablement of Heavy Compositing */
+.layout-tv {
+    --jf-surface-glass: var(--jf-surface-raised);
+    --jf-surface-glass-header: var(--jf-surface-raised);
+    --jf-surface-glass-osd: var(--jf-surface-canvas);
+    --jf-surface-glass-dialog: var(--jf-surface-raised);
+    --jf-glass-blur: 0;
+    --jf-glass-backdrop: none;
+    --jf-glass-backdrop-subtle: none;
+    --jf-shadow-glass: none;
+    --osd-bg: #141418;
+}

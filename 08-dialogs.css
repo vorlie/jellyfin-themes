@@ -1,0 +1,123 @@
+/**
+ * Jellyfin Liquid Glass / Material 3 Design System
+ * 08. Dialogs, Menus & Action Sheets
+ * ==========================================================================
+ * Glass modals, floating popover menus, action sheets, and notifications
+ * in the translucent obsidian style.
+ */
+
+/* --------------------------------------------------------------------------
+   Modal Dialogs (Legacy & Modern MUI)
+   -------------------------------------------------------------------------- */
+.dialog,
+.formDialog,
+.MuiDialog-paper {
+    background-color: rgba(14, 14, 18, 0.82) !important;
+    backdrop-filter: blur(8px) saturate(120%) !important;
+    -webkit-backdrop-filter: blur(8px) saturate(120%) !important;
+    border: 1px solid var(--osd-border) !important;
+    border-radius: var(--osd-radius) !important;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035) !important;
+    overflow: hidden;
+}
+
+.formDialogHeader {
+    border-bottom: 1px solid var(--osd-border);
+    padding: 1rem 1.4rem !important;
+    background: transparent !important;
+}
+
+.formDialogHeaderTitle {
+    font-size: 1.15rem !important;
+    font-weight: 600 !important;
+    color: var(--osd-text) !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+}
+
+.formDialogFooter {
+    border-top: 1px solid var(--osd-border);
+    padding: 0.9rem 1.4rem !important;
+    background: transparent !important;
+    gap: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Action Sheets & Context Menus
+   -------------------------------------------------------------------------- */
+.actionSheet,
+.MuiMenu-paper,
+.MuiPopover-paper {
+    background-color: rgba(14, 14, 18, 0.78) !important;
+    backdrop-filter: blur(8px) saturate(120%) !important;
+    -webkit-backdrop-filter: blur(8px) saturate(120%) !important;
+    border: 1px solid var(--osd-border) !important;
+    border-radius: 12px !important;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035) !important;
+    padding: 4px !important;
+}
+
+.actionSheetMenuItem,
+.MuiMenuItem-root {
+    border-radius: 8px !important;
+    margin: 1px 2px !important;
+    padding: 0.45rem 0.85rem !important;
+    color: var(--osd-text-secondary) !important;
+    font-size: 0.88rem !important;
+    font-weight: 500 !important;
+    transition:
+        background-color 120ms ease,
+        color 120ms ease,
+        transform 120ms ease !important;
+}
+
+.actionSheetMenuItem:hover,
+.MuiMenuItem-root:hover {
+    background-color: rgba(255, 255, 255, 0.09) !important;
+    color: var(--osd-text) !important;
+    transform: translateX(2px);
+}
+
+.actionsheetDivider,
+.MuiDivider-root {
+    background: var(--osd-border) !important;
+    margin: 4px 0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Filter Dialog
+   -------------------------------------------------------------------------- */
+.filterDialog {
+    max-width: 32rem;
+}
+
+/* --------------------------------------------------------------------------
+   Toasts & Transient Notifications
+   -------------------------------------------------------------------------- */
+.toast,
+.MuiSnackbarContent-root {
+    background-color: rgba(14, 14, 18, 0.85) !important;
+    backdrop-filter: blur(8px) saturate(120%) !important;
+    -webkit-backdrop-filter: blur(8px) saturate(120%) !important;
+    border: 1px solid var(--osd-border) !important;
+    border-radius: 999px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
+    color: var(--osd-text) !important;
+    font-weight: 500 !important;
+    padding: 0.65rem 1.4rem !important;
+}
+
+/* --------------------------------------------------------------------------
+   TV Mode Safeguards
+   -------------------------------------------------------------------------- */
+.layout-tv .dialog,
+.layout-tv .formDialog,
+.layout-tv .actionSheet,
+.layout-tv .toast {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background-color: var(--jf-surface-raised) !important;
+}
