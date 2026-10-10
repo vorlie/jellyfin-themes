@@ -42,7 +42,7 @@ jellyfin-themes/
 From the theme directory, you can serve the files with Python:
 
 ```bash
-cd themes/Jellyfin\ Obsidian\ Material
+cd themes/jellyfin-obsidian-material
 python3 -m http.server 8787 --bind 0.0.0.0 --directory .
 ```
 
