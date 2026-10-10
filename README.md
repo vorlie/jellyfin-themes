@@ -2,6 +2,12 @@
 
 A desktop-first visual redesign for Jellyfin Web crafted in pure modern CSS/SCSS with a **Liquid Glass / Material 3-inspired aesthetic**.
 
+## Compatibility
+
+| Theme Version | Jellyfin Target | Status |
+| :--- | :--- | :--- |
+| `v12.1.x` | Jellyfin 12.1.x | Active |
+
 ---
 
 ## Architecture & File Structure
