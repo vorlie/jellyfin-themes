@@ -66,14 +66,14 @@ Use [`theme.css`](./theme.css) in a browser or local web host during development
 Preview the theme locally from this folder using Python:
 
 ```bash
-cd /path/to/jellyfin-themes/themes/Jellyfin\ Obsidian\ Material
+cd /path/to/jellyfin-themes/themes/jellyfin-obsidian-material
 python3 -m http.server 8787 --bind 0.0.0.0 --directory .
 ```
 
 On Windows:
 
 ```powershell
-cd .\jellyfin-themes\themes\"Jellyfin Obsidian Material"
+cd .\jellyfin-themes\themes\jellyfin-obsidian-material
 py -m http.server 8787 --bind 0.0.0.0 --directory .
 ```
 
