@@ -1,0 +1,14 @@
+/**
+ * Jellyfin Liquid Glass / Material 3 Design System
+ * 10. Tweaks & Fixes
+ * ==========================================================================
+ * Miscellaneous tweaks and fixes for Jellyfin's Material 3 redesign.
+ */
+
+.MuiButtonBase-root{
+    border-right: none !important;
+}
+
+.layout-desktop [dir="ltr"] .detailRibbon{
+    padding-left: 4vw;
+}
