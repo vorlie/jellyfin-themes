@@ -14,6 +14,11 @@ A small collection of custom CSS themes for Jellyfin Web. Each theme is kept in 
 jellyfin-themes/
 ├── README.md
 ├── .gitignore
+├── images/
+│   ├── main.png
+│   ├── details.png
+│   ├── medialist.png
+│   └── playerosd.png
 ├── scripts/
 │   ├── start.py
 │   ├── serve-css.sh
@@ -29,6 +34,31 @@ jellyfin-themes/
 │       └── bundle.min.css
 └── LICENSE
 ```
+
+## Gallery
+
+<table>
+  <tr>
+    <td align="center">
+      <img src="images/jellyfin-obsidian-material/main.png" alt="Main layout" width="480" />
+      <br><strong>Main layout</strong>
+    </td>
+    <td align="center">
+      <img src="images/jellyfin-obsidian-material/details.png" alt="Details view" width="480" />
+      <br><strong>Details view</strong>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="images/jellyfin-obsidian-material/medialist.png" alt="Media list" width="480" />
+      <br><strong>Media list</strong>
+    </td>
+    <td align="center">
+      <img src="images/jellyfin-obsidian-material/playerosd.png" alt="Player OSD" width="480" />
+      <br><strong>Player OSD</strong>
+    </td>
+  </tr>
+</table>
 
 ## How to Use a Theme
 
