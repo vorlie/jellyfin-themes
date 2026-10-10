@@ -8,6 +8,20 @@ A small collection of custom CSS themes for Jellyfin Web. Each theme is kept in 
 | :--- | :--- | :--- | :--- |
 | Jellyfin Obsidian Material | [themes/jellyfin-obsidian-material](themes/jellyfin-obsidian-material) | Jellyfin 12.1.x | Active |
 
+## Project Rules
+
+The goal of this project is to provide a visual refresh without materially altering Jellyfin's functionality or layout structure.
+
+- Preserve Jellyfin's existing information architecture and navigation patterns.
+- Prefer visual polish over structural rewrites: color, spacing, contrast, glass surfaces, and refinement.
+- Keep interactions familiar and readable; avoid major layout churn or aggressive UI redesigns.
+- Use CSS to refine the experience rather than replace core Jellyfin components.
+- Favor maintainable, layered styling over one-off hacks.
+
+## AI Usage
+
+This repository was developed with AI assistance, primarily for documentation drafting, repo cleanup, and summarizing design/testing notes. Human review remains the final authority for theme decisions, compatibility, and release quality.
+
 ## Repository Structure
 
 ```text
