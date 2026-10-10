@@ -39,11 +39,18 @@ jellyfin-themes/
 
 ## Local Preview
 
-From the theme directory, you can serve the files with Python:
+You can serve the current theme without editing any script paths. The preview script auto-detects the correct theme folder from the repository layout:
+
+```bash
+cd jellyfin-themes
+python3 scripts/start.py
+```
+
+Or, if you are already inside a theme folder:
 
 ```bash
 cd themes/jellyfin-obsidian-material
-python3 -m http.server 8787 --bind 0.0.0.0 --directory .
+python3 ../../scripts/start.py
 ```
 
 Then open:
@@ -52,7 +59,7 @@ Then open:
 http://localhost:8787/
 ```
 
-The helper scripts in the `scripts/` folder are also available for quick local preview workflows on Windows or Linux.
+The helper scripts in the `scripts/` folder are also available for quick local preview workflows on Windows or Linux, and they pass through to the same auto-detection logic.
 
 ## Theme Maintenance
 
