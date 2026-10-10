@@ -85,6 +85,29 @@ http://localhost:8787/
 
 This is useful for testing the design before copying the final bundled CSS into Jellyfin.
 
+If you want to keep making personal tweaks on top of the local theme while your Jellyfin instance loads it live, add an import in your custom CSS such as:
+
+```css
+@import url("http://192.168.0.27:8787/theme.css");
+```
+
+or, for the bundled production variant:
+
+```css
+@import url("http://192.168.0.27:8787/bundle.min.css");
+```
+
+This lets you iterate on the theme quickly without copying the CSS back into Jellyfin each time.
+
+### Method 4: Build the Release Bundle
+From this theme folder, run:
+
+```bash
+npx esbuild theme.css --bundle --minify --outfile=bundle.min.css
+```
+
+This generates the production-ready CSS bundle used in Jellyfin's Custom CSS field.
+
 ---
 
 ## Notes
